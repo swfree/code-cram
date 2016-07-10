@@ -1,0 +1,26 @@
+{
+  "name": "code-cram",
+  "version": "1.0.0",
+  "description": "prep work for technical interviews",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swfree/code-cram.git"
+  },
+  "author": "Skye Free",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swfree/code-cram/issues"
+  },
+  "homepage": "https://github.com/swfree/code-cram#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.3",
+    "q": "^1.4.1",
+    "request": "^2.73.0"
+  }
+}
