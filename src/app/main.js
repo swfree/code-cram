@@ -22,7 +22,11 @@ function getFileNames (folderName) {
     $sidebarLarge.html('');
     var htmlToAdd;
     response.forEach(function(question, index) {
-      htmlToAdd = '<div class="sidebar-lg-text" onclick=getMainBody(' + index + ')>' + question.question.slice(0,20) + '...</div>';
+      if (index === 0) {
+        htmlToAdd = '<div class="sidebar-lg-text sidebar-lg-text-selected" onclick="getMainBody(' + index + '); changeFileHighlight(' + index + ')">' + question.question.slice(0,20) + '...</div>';
+      } else {
+        htmlToAdd = '<div class="sidebar-lg-text" onclick="getMainBody(' + index + '); changeFileHighlight(' + index + ')">' + question.question.slice(0,20) + '...</div>';
+      }
       $sidebarLarge.append(htmlToAdd);
     });
 
@@ -32,7 +36,15 @@ function getFileNames (folderName) {
 
 function getMainBody(index) {
   var $mainText = $('.main-text');
-  var mainBody = '<b>' + currentFiles[index].question + '</b><hr><br><br><br>' + currentFiles[index].answer;
+  var answerText = currentFiles[index].answer;
+  if (answerText.includes('*')) {
+    answerText = '<ul>';
+    currentFiles[index].answer.split('*').forEach(function(bullet) {
+      answerText += '<li>' + bullet + '</li>';
+    });
+    answerText += '</ul>'
+  }
+  var mainBody = '<b>' + currentFiles[index].question + '</b><hr><br><br><br>' + answerText;
   $mainText.html(mainBody);
 }
 
@@ -46,4 +58,14 @@ function changeFolderHighlight(index) {
   $('div.sidebar-sm div.sidebar-icon:nth-child(' + toRemove + ')').removeClass('sidebar-icon-selected');
   $('div.sidebar-sm div.sidebar-icon:nth-child(' + toAdd + ')').addClass('sidebar-icon-selected');
   priorSelection = index;
+  priorFileSelection = 0;
+}
+
+var priorFileSelection = 0;
+function changeFileHighlight(index) {
+  toRemove = priorFileSelection + 1;
+  toAdd = index + 1;
+  $('div.sidebar-lg div.sidebar-lg-text:nth-child(' + toRemove + ')').removeClass('sidebar-lg-text-selected');
+  $('div.sidebar-lg div.sidebar-lg-text:nth-child(' + toAdd + ')').addClass('sidebar-lg-text-selected');
+  priorFileSelection = index;
 }
