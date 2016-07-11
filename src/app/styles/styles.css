@@ -74,3 +74,13 @@ body {
 .sidebar-icon-selected {
   border: solid #DFEBED 3px;
 }
+
+.sidebar-lg-text-selected {
+  background-color: #f78536;
+  color: black;
+  border-radius: 3px;
+}
+
+.sidebar-lg-text-selected:hover {
+  background-color: #f78536;
+}
