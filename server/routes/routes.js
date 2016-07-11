@@ -4,6 +4,7 @@ const routesQuestions = require('./routes-questions.js');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('src'));
 
 app.get('/questions', routesQuestions.getAllQuestions);
 app.get('/questions/:category', routesQuestions.getCategoryQuestions);
