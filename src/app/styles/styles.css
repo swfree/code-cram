@@ -1,0 +1,76 @@
+body {
+  background-color: #f7f7f7;
+  font-family: 'Droid Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar-sm {
+  flex: 1;
+  background-color: #2B4450;
+  height: 100vh;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+}
+
+.sidebar-lg {
+  flex: 2;
+  background-color: #497285;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.main {
+  flex: 6;
+  padding: 40px;
+}
+
+.sidebar-icon {
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+  margin-top: 25px;
+  border-radius: 5px;
+  border: solid #D3A342 3px;
+  background-color: #D3A342;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.sidebar-icon:hover {
+  border: solid grey 3px;
+}
+
+.sidebar-sm-text {
+  color: white;
+}
+
+.sidebar-lg-text {
+  color: #B7CCCE;
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  width: 90%;
+  padding-left: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.sidebar-lg-text:hover {
+  background-color: #3B6472;
+  border-radius: 3px;
+}
+
+.sidebar-icon-selected {
+  border: solid #DFEBED 3px;
+}
